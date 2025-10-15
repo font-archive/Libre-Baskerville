@@ -85,6 +85,18 @@ name = Languagesystems;
 features = (
 {
 automatic = 1;
+code = "feature locl;
+feature subs;
+feature ordn;
+feature frac;
+feature sinf;
+feature sups;
+feature case;
+";
+tag = aalt;
+},
+{
+automatic = 1;
 code = "lookup ccmp_DFLT_1 {
 	@CombiningTopAccents = [acutecomb brevecomb breveinvertedcomb caroncomb circumflexcomb commaturnedabovecomb dblgravecomb dieresiscomb dotaccentcomb gravecomb hungarumlautcomb macroncomb ringcomb tildecomb];
 	lookupflag UseMarkFilteringSet @CombiningTopAccents;
@@ -159,18 +171,6 @@ tag = ccmp;
 },
 {
 automatic = 1;
-code = "feature locl;
-feature subs;
-feature ordn;
-feature frac;
-feature sinf;
-feature sups;
-feature case;
-";
-tag = aalt;
-},
-{
-automatic = 1;
 code = "script latn;
 language AZE;
 lookup locl_latn_0 {
@@ -229,56 +229,6 @@ tag = subs;
 },
 {
 automatic = 1;
-code = "sub [zero one two three four five six seven eight nine] [A a]' by ordfeminine;
-sub [zero one two three four five six seven eight nine] [O o]' by ordmasculine;
-sub N o period by numero;
-";
-tag = ordn;
-},
-{
-automatic = 1;
-code = "lookupflag IgnoreMarks;
-sub f f i by f_f_i;
-sub f f l by f_f_l;
-sub f f by f_f;
-sub f i by fi;
-sub f l by fl;
-";
-tag = liga;
-},
-{
-automatic = 1;
-code = "lookupflag IgnoreMarks;
-sub f f b by f_f_b;
-sub f f h by f_f_h;
-sub f f j by f_f_j;
-sub f f k by f_f_k;
-sub f f t by f_f_t;
-sub c t by c_t;
-sub f b by f_b;
-sub f h by f_h;
-sub f j by f_j;
-sub f k by f_k;
-sub f t by f_t;
-sub s p by s_p;
-sub s t by s_t;
-";
-tag = dlig;
-},
-{
-code = "	sub one [slash fraction] two by onehalf;
-	sub one [slash fraction] three by onethird;
-	sub one [slash fraction] four by onequarter;
-	sub one [slash fraction] eight by oneeighth;
-	sub two [slash fraction] three by twothirds;
-	sub three [slash fraction] four by threequarters;
-	sub three [slash fraction] eight by threeeighths;
-	sub five [slash fraction] eight by fiveeighths;
-	sub seven [slash fraction] eight by seveneighths;";
-tag = frac;
-},
-{
-automatic = 1;
 code = "sub zero by zeroinferior;
 sub one by oneinferior;
 sub two by twoinferior;
@@ -306,6 +256,99 @@ sub eight by eightsuperior;
 sub nine by ninesuperior;
 ";
 tag = sups;
+},
+{
+automatic = 1;
+code = "sub [zero one two three four five six seven eight nine] [A a]' by ordfeminine;
+sub [zero one two three four five six seven eight nine] [O o]' by ordmasculine;
+sub N o period by numero;
+";
+tag = ordn;
+},
+{
+automatic = 1;
+code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
+sub dieresiscomb by dieresiscomb.case;
+sub dotaccentcomb by dotaccentcomb.case;
+sub gravecomb by gravecomb.case;
+sub acutecomb by acutecomb.case;
+sub hungarumlautcomb by hungarumlautcomb.case;
+sub circumflexcomb by circumflexcomb.case;
+sub caroncomb by caroncomb.case;
+sub brevecomb by brevecomb.case;
+sub ringcomb by ringcomb.case;
+sub tildecomb by tildecomb.case;
+sub macroncomb by macroncomb.case;
+sub dblgravecomb by dblgravecomb.case;
+sub breveinvertedcomb by breveinvertedcomb.case;
+sub dotbelowcomb by dotbelowcomb.case;
+sub dieresisbelowcomb by dieresisbelowcomb.case;
+sub ringbelowcomb by ringbelowcomb.case;
+sub cedillacomb by cedillacomb.case;
+sub ogonekcomb by ogonekcomb.case;
+sub circumflexbelowcomb by circumflexbelowcomb.case;
+sub brevebelowcomb by brevebelowcomb.case;
+sub tildebelowcomb by tildebelowcomb.case;
+sub macronbelowcomb by macronbelowcomb.case;
+sub dieresis by dieresis.case;
+sub dotaccent by dotaccent.case;
+sub grave by grave.case;
+sub acute by acute.case;
+sub hungarumlaut by hungarumlaut.case;
+sub circumflex by circumflex.case;
+sub caron by caron.case;
+sub breve by breve.case;
+sub ring by ring.case;
+sub ring_acutecomb by ring_acutecomb.case;
+sub tilde by tilde.case;
+sub macron by macron.case;
+sub cedilla by cedilla.case;
+sub ogonek by ogonek.case;
+sub commaaccentcomb by commaaccentcomb.case;
+";
+tag = case;
+},
+{
+automatic = 1;
+code = "lookupflag IgnoreMarks;
+sub f f b by f_f_b;
+sub f f h by f_f_h;
+sub f f j by f_f_j;
+sub f f k by f_f_k;
+sub f f t by f_f_t;
+sub c t by c_t;
+sub f b by f_b;
+sub f h by f_h;
+sub f j by f_j;
+sub f k by f_k;
+sub f t by f_t;
+sub s p by s_p;
+sub s t by s_t;
+";
+tag = dlig;
+},
+{
+automatic = 1;
+code = "lookupflag IgnoreMarks;
+sub f f i by f_f_i;
+sub f f l by f_f_l;
+sub f f by f_f;
+sub f i by fi;
+sub f l by fl;
+";
+tag = liga;
+},
+{
+code = "	sub one [slash fraction] two by onehalf;
+	sub one [slash fraction] three by onethird;
+	sub one [slash fraction] four by onequarter;
+	sub one [slash fraction] eight by oneeighth;
+	sub two [slash fraction] three by twothirds;
+	sub three [slash fraction] four by threequarters;
+	sub three [slash fraction] eight by threeeighths;
+	sub five [slash fraction] eight by fiveeighths;
+	sub seven [slash fraction] eight by seveneighths;";
+tag = frac;
 },
 {
 code = " # Kerning
@@ -2258,49 +2301,6 @@ lookup kern0 {
 } kern0;";
 disabled = 1;
 tag = kern;
-},
-{
-automatic = 1;
-code = "sub periodcentered.loclCAT by periodcentered.loclCAT.case;
-sub dieresiscomb by dieresiscomb.case;
-sub dotaccentcomb by dotaccentcomb.case;
-sub gravecomb by gravecomb.case;
-sub acutecomb by acutecomb.case;
-sub hungarumlautcomb by hungarumlautcomb.case;
-sub circumflexcomb by circumflexcomb.case;
-sub caroncomb by caroncomb.case;
-sub brevecomb by brevecomb.case;
-sub ringcomb by ringcomb.case;
-sub tildecomb by tildecomb.case;
-sub macroncomb by macroncomb.case;
-sub dblgravecomb by dblgravecomb.case;
-sub breveinvertedcomb by breveinvertedcomb.case;
-sub dotbelowcomb by dotbelowcomb.case;
-sub dieresisbelowcomb by dieresisbelowcomb.case;
-sub ringbelowcomb by ringbelowcomb.case;
-sub cedillacomb by cedillacomb.case;
-sub ogonekcomb by ogonekcomb.case;
-sub circumflexbelowcomb by circumflexbelowcomb.case;
-sub brevebelowcomb by brevebelowcomb.case;
-sub tildebelowcomb by tildebelowcomb.case;
-sub macronbelowcomb by macronbelowcomb.case;
-sub dieresis by dieresis.case;
-sub dotaccent by dotaccent.case;
-sub grave by grave.case;
-sub acute by acute.case;
-sub hungarumlaut by hungarumlaut.case;
-sub circumflex by circumflex.case;
-sub caron by caron.case;
-sub breve by breve.case;
-sub ring by ring.case;
-sub ring_acutecomb by ring_acutecomb.case;
-sub tilde by tilde.case;
-sub macron by macron.case;
-sub cedilla by cedilla.case;
-sub ogonek by ogonek.case;
-sub commaaccentcomb by commaaccentcomb.case;
-";
-tag = case;
 }
 );
 fontMaster = (
@@ -74239,5 +74239,5 @@ com.typesupply.MetricsMachine4.groupColors = {
 UFOFormat = 2;
 };
 versionMajor = 2;
-versionMinor = 4;
+versionMinor = 5;
 }
